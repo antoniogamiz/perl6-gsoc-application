@@ -63,3 +63,13 @@ Escape/unscape characters logic is also repeated, so two auxiliar functions will
   sub escape-markup ( $_ ) { ... }
   sub unescape-markup ( $_ ) { ... }
 ~~~
+
+### About me 
+
+I am currently studying Computer Science and Mathematics at the University of Granada, Spain.
+I have been programming in several languages before (C++, Java, Javascript, Python, etc) but I
+had never used Perl6 so I am totally new! 
+
+These days I have been using Learning Perl 6 book by Brian D Foy in order to learn the basis
+about the language and I have taken part in a couple of squashatons. I am even writing my 
+first Perl 6 module! (a simple one to be honest [+info](https://github.com/antoniogamiz/Math-ConvergenceMethods)).
