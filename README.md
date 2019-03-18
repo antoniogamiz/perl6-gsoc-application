@@ -1,2 +1,18 @@
-# perl6-gsoc-application
-Repository containing my application to GSOC 2019 for Perl6 organization.
+# Redesing of the Perl 6 Documentation System
+
+* **Student**: Antonio Gámiz Delgado [antoniogamiz10@gmail.com]
+* **Mentor**: Juán Julián Merelo Guervós
+
+---
+
+### Description
+
+### Deriverables
+
+### Timeline
+
+#### May 6-27 
+
+Community Bonding
+
+### Implementation
