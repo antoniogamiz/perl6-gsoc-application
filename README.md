@@ -29,7 +29,7 @@ provoking side effects and reducing doc build time.
 - May 6-27: In the Community Bonding period I will learn more about Perl6 ecosystem
   (testing methods, standards and code base structure), get to know the community itself
   and discuss with my mentor.
-- May 27 - June 9 (3 weeks): Minidoc repository plus `Perl6::LinkHealth` development.
+- May 27 - June 9 (2 weeks): Minidoc repository plus `Perl6::LinkHealth` development.
 - June 9 - June 30 (3 weeks): Spinning off lib modules plus `Perl6::Cached` support.
 - June 30 - July 14 (2 weeks): `Pod::Cached` test suite plus its integration in the main repo.
 - July 14 - August 4 (3 weeks): `Pod::To::HTML` fixing plus GitHub rendering pod files (hopefully).
