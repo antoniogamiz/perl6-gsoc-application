@@ -44,11 +44,11 @@ coverage so I will spend a considerable part of the time to reduce this fact.
 
 #### Minidoc repository
 
-The first thing we need to do is a mini doc repository (issue #2529), mocking the current
-doc, called `mini-docs`, containing a subset of the actual documentation. The purpose of
-this repository is to let make tests faster, using a low number of pod files rather than
-the entire `doc` repository. The subset chosen will have to be self-contained so that it
-can be rebuilt it with the actual tooling without errors.
+The first thing we need to do is a mini doc repository (issue [#2529](https://github.com/perl6/doc/issues/2529)),
+mocking the current doc, called `mini-docs`, containing a subset of the actual documentation.
+The purpose of this repository is to let make tests faster, using a low number of pod files
+rather than the entire `doc` repository. The subset chosen will have to be self-contained so
+that it can be rebuilt it with the actual tooling without errors.
 
 #### Link Scraper
 
@@ -57,11 +57,12 @@ many links are failing and why. This scraper will be used each time an important
 made to the main doc repo to assure that the number of broken links is lower, or at least,
 constant between changes and to track several errors.
 
-Link problems have been recurring for a long time, issues like #561 (with top priority),
-\#1825 (404 errors) or #585 (doubled links). This tool will use the [checklink](https://metacpan.org/pod/distribution/W3C-LinkChecker/bin/checklink.pod)
-tool to check the links. Moreover, in order to get an informative output, I will need to
-create a mini tool to generate reports about the failing links (such as classified by
-error coded, link form, etc.).
+Link problems have been recurring for a long time, issues like [#561](https://github.com/perl6/doc/issues/561)
+(with top priority), \#[1825](https://github.com/perl6/doc/issues/1825) (404 errors) or [#585](https://github.com/perl6/doc/issues/2529)
+(doubled links). This tool will use the [checklink](https://metacpan.org/pod/distribution/W3C-LinkChecker/bin/checklink.pod)
+tool to check the links health. Moreover, in order to get an informative output, I will need to
+create a mini tool to generate reports about the failing links (such as classify them by error
+code, link form, etc.).
 
 In addition, we will need to save the current existing links in order to make sure that links
 are not lost by future changes to the documentation system.
@@ -72,11 +73,12 @@ We can publish this tool as a health checker specialized in Perl6 Documentation 
 #### doc/lib/\* Spinning-off and Cache System
 
 In the [lib folder](https://github.com/perl6/doc/tree/master/lib) there are several modules
-defined that can be taken apart to independent modules in the Perl6 Ecosystem. As #1937 and
-\#2573 issues say, `Perl6::Documentable` and `Perl6::Type` need a test suite which covers
-most of the use cases (currently there is almost none). Moreover, documentation about these
-modules does not exist, so new people that need to change or fix something about them (like me)
-have to work out what they do. So a detailed documentation will be made for them.
+defined that can be taken apart to independent modules in the Perl6 Ecosystem. As [#1937](https://github.com/perl6/doc/issues/2529)
+and [#2573](https://github.com/perl6/doc/issues/2529) issues say, `Perl6::Documentable` and
+`Perl6::Type` need a test suite which covers most of the use cases (currently there is almost
+none). Moreover, documentation about these modules does not exist, so new people that need to
+change or fix something about them (like me) have to guess what they do. So a detailed
+documentation will be made for them.
 
 On top of that, `Perl6::Documentable` has to be adapted to use `Pod::Cached` to reduce the
 number of pod file compilations (currently they are compiled 3 times). To reduce this number
