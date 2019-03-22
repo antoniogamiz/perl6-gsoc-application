@@ -1,8 +1,7 @@
 # Redesign of the Perl 6 Documentation System
 
 - **Student**: Antonio Gámiz Delgado [antoniogamiz10@gmail.com]
-- **Mentor**: ---
-
+- **Project Idea**: [A redesign of the Perl6 Documentation System](https://github.com/perl6/doc/wiki/A-Redesign-of-the-Perl-6-Documentation-System)
 ---
 
 ### Description
@@ -18,7 +17,7 @@ provoking side effects and reducing doc build time.
 ### Deriverables
 
 - `mini-docs` repository
-- Health link tool (described below)
+- Link Health tool (described below)
 - Tests suite for `Perl6::Documentable`, `Perl6::Type` and `Pod::Cached`
 - `Pod::Cached` support for `Perl6::Documentable`
 - Successful integration of `Pod::Cached` in the doc repository.
@@ -37,7 +36,7 @@ provoking side effects and reducing doc build time.
 
 ### Implementation
 
-All these steps are headed to reach `A new documentation system`, that some people
+All these steps are have as a target [A new documentation system](https://github.com/perl6/doc/wiki/A-Redesign-of-the-Perl-6-Documentation-System), that some people
 in the community have already started. Currently, the doc repository contains several
 modules that could be independent and, in general, there is a big lack of test
 coverage so I will spend a considerable part of the time to reduce this fact.
@@ -46,7 +45,7 @@ coverage so I will spend a considerable part of the time to reduce this fact.
 
 The first thing we need to do is a mini doc repository (issue [#2529](https://github.com/perl6/doc/issues/2529)),
 mocking the current doc, called `mini-docs`, containing a subset of the actual documentation.
-The purpose of this repository is to let make tests faster, using a low number of pod files
+The purpose of this repository is to make tests faster, using a low number of pod files
 rather than the entire `doc` repository. The subset chosen will have to be self-contained so
 that it can be rebuilt it with the actual tooling without errors.
 
@@ -72,8 +71,7 @@ We can publish this tool as a health checker specialized in Perl6 Documentation 
 
 #### doc/lib/\* Spinning-off and Cache System
 
-In the [lib folder](https://github.com/perl6/doc/tree/master/lib) there are several modules
-defined that can be taken apart to independent modules in the Perl6 Ecosystem. As [#1937](https://github.com/perl6/doc/issues/2529)
+There are several modules defined in the [lib folder](https://github.com/perl6/doc/tree/master/lib) that can be taken apart to independent modules in the Perl6 Ecosystem. As [#1937](https://github.com/perl6/doc/issues/2529)
 and [#2573](https://github.com/perl6/doc/issues/2529) issues say, `Perl6::Documentable` and
 `Perl6::Type` need a test suite which covers most of the use cases (currently there is almost
 none). Moreover, documentation about these modules does not exist, so new people that need to
@@ -100,9 +98,9 @@ link generation).
 
 ### About me
 
-I am currently studying Computer Science and Mathematics at the University of Granada, Spain.
-I have been programming in several languages before (C++, Java, Javascript, Python, etc.) but I
-had never used Perl6 so I am totally new to it!
+I am currently studying a double degree in Computer Science and Mathematics at the University of 
+Granada, Spain. I have been programming in several languages before (C++, Java, Javascript, Python,
+etc.) but I had never used Perl6 so I am totally new to it!
 
 These days I have been using Learning Perl 6 book by Brian D Foy in order to learn the basics
 about the language and I have taken part in a couple of squashatons. I am even writing my
