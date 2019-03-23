@@ -20,7 +20,12 @@ provoking side effects and reducing doc build time.
   - Find correct doc subset (conditions described in Minidoc repository section ).
   - Make a new repository in the Perl6 org, add the files and document it.
   - If everything is correct, close issue [#2529](https://github.com/perl6/doc/issues/2529)
-- Link Health tool (described below)
+- Link Health tool:
+  - Functionality to scrape recursively all links in docs.perl6.org.
+  - Functionality to store and classify all links in folders by status code.
+  - Functionality compare links between different executions and throws appropiated warnings.
+  - Document all utilities made.
+  - Publish in Perl6 Ecosystem.
 - Tests suite for `Perl6::Documentable`, `Perl6::Type` and `Pod::Cached`
 - `Pod::Cached` support for `Perl6::Documentable`
 - Successful integration of `Pod::Cached` in the doc repository.
@@ -48,8 +53,7 @@ Currently, site-generation tools are tested by generating the entire site, logic
 to complete and if some test shows an error, you need to wait a long time again to check if it has been fixed.
 So, in order to fix this fact, a `mini-doc` repository will be made (as discussed in [#2529](https://github.com/perl6/doc/issues/2529)).
 
-This repository will contain a self-contained subset of the current [doc folder](https://github.com/perl6/doc/tree/master/doc). The `mini-doc` repo needs to fulfil some conditions:
-
+This repository will contain a self-contained subset of the current [doc folder](https://github.com/perl6/doc/tree/master/doc). The `mini-doc` repo needs to fulfil some conditions.
 It has to be:
 
 * Big enough to cover most of the use cases.
@@ -76,22 +80,49 @@ When we find the correct  subset and we check that a doc site can be generated w
 
 #### Link Scraper
 
-We need a link-scraper to gather all existing links in docs.perl6.org in order to know how
+
+Link problems have been recurring for a long time, issues like [#561](https://github.com/perl6/doc/issues/561)
+(with top priority), \#[1825](https://github.com/perl6/doc/issues/1825) (404 errors) or [#585](https://github.com/perl6/doc/issues/2529) (doubled links).
+
+So We need a link-scraper to gather all existing links in docs.perl6.org in order to know how
 many links are failing and why. This scraper will be used each time an important change is
 made to the main doc repo to assure that the number of broken links is lower, or at least,
 constant between changes and to track several errors.
 
-Link problems have been recurring for a long time, issues like [#561](https://github.com/perl6/doc/issues/561)
-(with top priority), \#[1825](https://github.com/perl6/doc/issues/1825) (404 errors) or [#585](https://github.com/perl6/doc/issues/2529)
-(doubled links). This tool will use the [checklink](https://metacpan.org/pod/distribution/W3C-LinkChecker/bin/checklink.pod)
-tool to check the links health. Moreover, in order to get an informative output, I will need to
-create a mini tool to generate reports about the failing links (such as classify them by error
-code, link form, etc.).
+I will use the [checklink](https://metacpan.org/pod/distribution/W3C-LinkChecker/bin/checklink.pod)
+tool  and Cro::HTTP](https://github.com/croservices/cro-http) to check the links health. The process will 
+start with the [doc main page](https://docs.perl6.org/) and will look for new links recursively.
 
-In addition, we will need to save the current existing links in order to make sure that links
-are not lost by future changes to the documentation system.
+The output of this tool will be stored in a directory called `links`, which will have this structure: 
 
-We can publish this tool as a health checker specialized in Perl6 Documentation page ( maybe
+~~~
+links/
+  200/
+    info.csv
+  404/
+    info.csv
+  xxx/ # whatever http error code
+    info.csv
+  all/
+    hh_dd_mm.csv
+~~~
+
+Each info.csv file (csv format has been chosen but support for json could be made too) will contain all links 
+that have thrown the error code of its directory name. Each line of these files will be like:
+
+~~~
+link, status_code, response_message, site_where_the_link_was_found
+~~~
+
+[status_code, response_message, site_where_the_link_was_found] are stored to have some debug information about 
+problematic links.
+
+In addition, to be able to keep track of all existing links, an additional folder will be handled by this tool: 
+`all`. This directory will contain csv files whose name follows the format: `time_day_month`. Each of these files
+include all links found in one execution and will be compared each time a new execution finishs throwing a warning
+if the number of links is lower (or greater) to check if some links have been lost.
+
+We can publish this tool as a health checker specialized in the [Perl6 Docs](https://docs.perl6.org/) ( maybe
 `Perl6::LinkHealth` would be a good name).
 
 #### doc/lib/\* Spinning-off and Cache System
