@@ -90,7 +90,7 @@ made to the main doc repo to assure that the number of broken links is lower, or
 constant between changes and to track several errors.
 
 I will use the [checklink](https://metacpan.org/pod/distribution/W3C-LinkChecker/bin/checklink.pod)
-tool  and Cro::HTTP](https://github.com/croservices/cro-http) to check the links health. The process will 
+tool  and [Cro::HTTP](https://github.com/croservices/cro-http) to check the links health. The process will 
 start with the [doc main page](https://docs.perl6.org/) and will look for new links recursively.
 
 The output of this tool will be stored in a directory called `links`, which will have this structure: 
