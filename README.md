@@ -16,7 +16,10 @@ provoking side effects and reducing doc build time.
 
 ### Deriverables
 
-- `mini-docs` repository
+- `mini-docs` repository:
+  - Find correct doc subset (conditions described in Minidoc repository section ).
+  - Make a new repository in the Perl6 org, add the files and document it.
+  - If everything is correct, close issue [#2529](https://github.com/perl6/doc/issues/2529)
 - Link Health tool (described below)
 - Tests suite for `Perl6::Documentable`, `Perl6::Type` and `Pod::Cached`
 - `Pod::Cached` support for `Perl6::Documentable`
@@ -41,13 +44,37 @@ in the community have already started. Currently, the doc repository contains se
 modules that could be independent and, in general, there is a big lack of test
 coverage so I will spend a considerable part of the time to reduce this fact.
 
-#### Minidoc repository
+#### Mini-doc repository
 
-The first thing we need to do is a mini doc repository (issue [#2529](https://github.com/perl6/doc/issues/2529)),
-mocking the current doc, called `mini-docs`, containing a subset of the actual documentation.
-The purpose of this repository is to make tests faster, using a low number of pod files
-rather than the entire `doc` repository. The subset chosen will have to be self-contained so
-that it can be rebuilt it with the actual tooling without errors.
+Currently, site-generation tools are tested by generating the entire site, logically, this needs a big time
+to complete and if some test shows an error, you need to wait a long time again to check if it has been fixed.
+So, in order to fix this fact, a `mini-doc` repository will be made (as discussed in [#2529](https://github.com/perl6/doc/issues/2529)).
+
+This repository will contain a self-contained subset of the current [doc folder](https://github.com/perl6/doc/tree/master/doc). The `mini-doc` repo needs to fulfil some conditions:
+
+It has to be:
+
+* Big enough to cover most of the use cases.
+* Small enough to be lightweight: because this repo is expected to be downloaded from the site-generating tools
+  to run the tests.
+* Self-contained: this means that a doc site can be generated from these files. For instance, `Mu`, `Cool`
+and `Any` could be chosen.
+
+The repo structure will be something like:
+
+~~~
+doc/
+  Language/
+    *.pod6
+  Programs/
+    *.pod6
+  Type/
+    *.pod6
+~~~
+
+At the beginning, this repo will be an exact clone of the current [doc repository](https://github.com/perl6/doc). 
+When we find the correct  subset and we check that a doc site can be generated without problems, any tool or file 
+(except \*.pod6) will be deleted.
 
 #### Link Scraper
 
