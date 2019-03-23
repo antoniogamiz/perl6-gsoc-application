@@ -4,7 +4,7 @@
 - **Project Idea**: [A redesign of the Perl6 Documentation System](https://github.com/perl6/doc/wiki/A-Redesign-of-the-Perl-6-Documentation-System)
 ---
 
-### Description
+### Abstract
 
 Currently, pod files are processed by various scripts and modules (`htmlify.p6`,
 `Pod::To::HTML`, `Pod::To::BigPage`,...), that has repeated functionality, low
@@ -39,10 +39,8 @@ provoking side effects and reducing doc build time.
 
 ### Implementation
 
-All these steps are have as a target [A new documentation system](https://github.com/perl6/doc/wiki/A-Redesign-of-the-Perl-6-Documentation-System), that some people
-in the community have already started. Currently, the doc repository contains several
-modules that could be independent and, in general, there is a big lack of test
-coverage so I will spend a considerable part of the time to reduce this fact.
+All these steps have as a target [A new documentation system](https://github.com/perl6/doc/wiki/A-Redesign-of-the-Perl-6-Documentation-System), that some people in the community have already started. Currently, the doc repository contains [several modules](https://github.com/perl6/doc/tree/master/lib) that could be independent. In addition, there is a big lack of test coverage so I will try to change that, develop new tools to improve the documentation process and upgrade
+existing ones to make them faster.
 
 #### Mini-doc repository
 
