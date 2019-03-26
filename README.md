@@ -13,7 +13,7 @@ Even pod6 files are compiled several times.
 
 So, what I intend to do to change this? I have three objectives:
 
-  - Improve the stability of the system facing changes without provoking undeserable side effects.
+  - Improve the stability of the system facing changes without provoking undesirable side effects.
   - Speed up the build process to be able to make changes faster.
   - Put together a lot of work in the docs done by several contributors during the last few years.
 
@@ -182,8 +182,7 @@ Well, after all this work, I think is necessary to update the new state of the d
 
 I am currently studying a double degree in Computer Science and Mathematics at the University of 
 Granada, Spain. I have been programming in several languages before (C++, Java, Javascript, Python,
-etc.) but I had never used Perl6 so I am totally new to it!
+etc.) but I am not so much experienced in Perl6.
 
 These days I have been using Learning Perl 6 book by Brian D Foy in order to learn the basics
-about the language and I have taken part in a couple of squashatons. I am even writing my
-first Perl 6 module! (a simple one to be honest [+info](https://github.com/antoniogamiz/Math-ConvergenceMethods)).
+about the language and I have taken part in a couple of squashatons (you can see some of my contributions [here](https://github.com/perl6/doc/commits?author=antoniogamiz)), written a simple [math module](https://github.com/antoniogamiz/Math-ConvergenceMethods) and I'm part of the [Perl6 Weekly Challenge](https://p6weekly.wordpress.com/)!.
