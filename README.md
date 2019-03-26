@@ -29,9 +29,13 @@ provoking side effects and reducing doc build time.
 - doc/lib/\* Spinning-off and Cache System:
   - New independent `Perl6::Documentable` and ``Perl6::Type`` module documented and tested using `mini-doc`.
   - `Perl6::Documentable::Registry`:
-    - in-memory-cache support
-    - Dependency tree
+    - in-memory-cache support.
+    - Dependency tree.
     - Documentation plus tests.
+- `Pod::To::HTML` and GitHub:
+  - Error fixing in `Pod::To::HTML`.
+  - Use templates instead of hardcoded html code.
+  - Functionality to read pod6 files using `Perl6::Parser`.
 
 ### Timeline
 
@@ -43,6 +47,8 @@ provoking side effects and reducing doc build time.
 - June 30 - July 14 (1 weeks): `Pod::Cached` test suite plus its integration in the main repo.
 - July 14 - August 4 (3 weeks): `Pod::To::HTML` fixing plus GitHub rendering pod files (hopefully).
 - August 4 - August 19 (2 weeks): accommodate delays, complete documentation, revise tests and clean up.
+
+**Note:** you will be able to follow, at all times, the current progress of the project in this repository because I'll be writing and mantaining a journal with my work. It will be updated each two or three days.
 
 ### Implementation
 
@@ -153,13 +159,22 @@ If all of these steps have been made correctly, the integration of the new modul
 As you can see in this issue [#55](https://github.com/perl6/Pod-To-HTML/issues/55), Pod6 was
 close to get rendered to HTML in GitHub, but due to the problem with pod files being compiled
 has not made this possible. So, a [new parser](https://github.com/drforr/perl6-Perl6-Parser-Pure)
-for Perl6 has been released, developed by Jeff Goff. This parser maybe could be used to process
+for Perl6 has been released, developed by Jeff Goff. This parser could be used to process
 pod files without executing anything in them. Hence, using this new parser, we could get GitHub
 to render pod files!
 
-So this part of the project, if time allows it, will consist on trying to incorporate the new
-parser to `Pod::To::HTML` and solve several HTML generation problemas in this module (for instance,
-link generation).
+This would mean that will have to use `Pod::To::HTML` to render pod files, but currently, this module has some
+[problems](https://github.com/perl6/Pod-To-HTML). So, first we need to solve them and maybe start to use templates ([Template::Mustache](https://github.com/softmoth/p6-Template-Mustache)) in the rendering process, as Richard Hainsworth has done in [Pod::Render](https://github.com/finanalyst/pod-render).
+
+So, this is the plan for this part:
+  - Fix the most important errors in `Pod::To::HTML`.
+  - Start using Mustache templates.
+  - Create a test suite covering each render function (to avoid current html errors present in several pages in the docs).
+  - Add necessary functionality to `Pod::To::HTML` to read pod6 files using `Perl6::Parser`.
+
+#### Closing
+
+Well, after all this work, I think is necessary to update the new state of the doc system and tooling in order to plan what wil be the next step to make. Hence, I will write a post in the wiki section of the doc repo, explaining the work done so far.
 
 ### About me
 
