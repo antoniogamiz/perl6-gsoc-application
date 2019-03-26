@@ -1,18 +1,21 @@
 # Redesign of the Perl 6 Documentation System
 
 - **Student**: Antonio Gámiz Delgado [antoniogamiz10@gmail.com]
-- **Project Idea**: [A redesign of the Perl6 Documentation System](https://github.com/perl6/doc/wiki/A-Redesign-of-the-Perl-6-Documentation-System)
+- **Project Idea**: Based on [A redesign of the Perl6 Documentation System](https://github.com/perl6/doc/wiki/A-Redesign-of-the-Perl-6-Documentation-System)
 ---
 
 ### Abstract
 
-Currently, pod files are processed by various scripts and modules (`htmlify.p6`,
+Currently, pod6 files are processed by various scripts and modules (`htmlify.p6`,
 `Pod::To::HTML`, `Pod::To::BigPage`,...), that has repeated functionality, low
-level of testing, tight coupling between presentation rendering and source data
-and compiles the files several times. So, the main idea is to renew some of these
-tools from scratch and integrate new modules (like `Pod::Cached`) allowing that
-future changes to the build process and doc system can be made easily without
-provoking side effects and reducing doc build time.
+level of testing, tight coupling between presentation rendering and source data.
+Even pod6 files are compiled several times. 
+
+So, what I intend to do to change this? I have three objectives:
+
+  - Improve the stability of the system facing changes without provoking undeserable side effects.
+  - Speed up the build process to be able to make changes faster.
+  - Put together a lot of work in the docs done by several contributors during the last few years.
 
 ### Deriverables
 
@@ -87,7 +90,6 @@ When we find the correct  subset and we check that a doc site can be generated w
 (except \*.pod6) will be deleted.
 
 #### Link Scraper
-
 
 Link problems have been recurring for a long time, issues like [#561](https://github.com/perl6/doc/issues/561)
 (with top priority), \#[1825](https://github.com/perl6/doc/issues/1825) (404 errors) or [#585](https://github.com/perl6/doc/issues/2529) (doubled links).
