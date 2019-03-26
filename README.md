@@ -26,10 +26,12 @@ provoking side effects and reducing doc build time.
   - Functionality compare links between different executions and throws appropiated warnings.
   - Document all utilities made.
   - Publish in Perl6 Ecosystem.
-- Tests suite for `Perl6::Documentable`, `Perl6::Type` and `Pod::Cached`
-- `Pod::Cached` support for `Perl6::Documentable`
-- Successful integration of `Pod::Cached` in the doc repository.
-- Pod6 files rendering by GitHub.
+- doc/lib/\* Spinning-off and Cache System:
+  - New independent `Perl6::Documentable` and ``Perl6::Type`` module documented and tested using `mini-doc`.
+  - `Perl6::Documentable::Registry`:
+    - in-memory-cache support
+    - Dependency tree
+    - Documentation plus tests.
 
 ### Timeline
 
@@ -37,8 +39,8 @@ provoking side effects and reducing doc build time.
   (testing methods, standards and code base structure), get to know the community itself
   and discuss with my mentor.
 - May 27 - June 9 (2 weeks): Minidoc repository plus `Perl6::LinkHealth` development.
-- June 9 - June 30 (3 weeks): Spinning off lib modules plus `Perl6::Cached` support.
-- June 30 - July 14 (2 weeks): `Pod::Cached` test suite plus its integration in the main repo.
+- June 9 - June 30 (4 weeks): Spinning off lib modules plus `Perl6::Documentable::Registry` in-memory-cache support.
+- June 30 - July 14 (1 weeks): `Pod::Cached` test suite plus its integration in the main repo.
 - July 14 - August 4 (3 weeks): `Pod::To::HTML` fixing plus GitHub rendering pod files (hopefully).
 - August 4 - August 19 (2 weeks): accommodate delays, complete documentation, revise tests and clean up.
 
@@ -56,10 +58,10 @@ So, in order to fix this fact, a `mini-doc` repository will be made (as discusse
 This repository will contain a self-contained subset of the current [doc folder](https://github.com/perl6/doc/tree/master/doc). The `mini-doc` repo needs to fulfil some conditions.
 It has to be:
 
-* Big enough to cover most of the use cases.
-* Small enough to be lightweight: because this repo is expected to be downloaded from the site-generating tools
+- Big enough to cover most of the use cases.
+- Small enough to be lightweight: because this repo is expected to be downloaded from the site-generating tools
   to run the tests.
-* Self-contained: this means that a doc site can be generated from these files. For instance, `Mu`, `Cool`
+- Self-contained: this means that a doc site can be generated from these files. For instance, `Mu`, `Cool`
 and `Any` could be chosen.
 
 The repo structure will be something like:
@@ -127,17 +129,24 @@ We can publish this tool as a health checker specialized in the [Perl6 Docs](htt
 
 #### doc/lib/\* Spinning-off and Cache System
 
-There are several modules defined in the [lib folder](https://github.com/perl6/doc/tree/master/lib) that can be taken apart to independent modules in the Perl6 Ecosystem. As [#1937](https://github.com/perl6/doc/issues/2529)
-and [#2573](https://github.com/perl6/doc/issues/2529) issues say, `Perl6::Documentable` and
-`Perl6::Type` need a test suite which covers most of the use cases (currently there is almost
-none). Moreover, documentation about these modules does not exist, so new people that need to
+Right now, there are several modules defined in the [lib folder](https://github.com/perl6/doc/tree/master/lib) that can be taken apart to independent modules in the Perl6 Ecosystem. As [#1937](https://github.com/perl6/doc/issues/2529)
+and [#2573](https://github.com/perl6/doc/issues/2529) issues say, `Perl6::Documentable`, `Perl6::Documentable::Registry`
+and `Perl6::Type` need a test suite which covers most of the use cases (currently there is almost
+none). Moreover, documentation about these modules almost does not exist, so new people that need to
 change or fix something about them (like me) have to guess what they do. So a detailed
 documentation will be made for them.
 
-On top of that, `Perl6::Documentable` has to be adapted to use `Pod::Cached` to reduce the
-number of pod file compilations (currently they are compiled 3 times). To reduce this number
-to 1, we will integrate `Pod::Cached` in the main doc repository and it will be used by the tests
-`Pod::Documentable`. In addition, a wider test suite will be made to this module.
+In addition, the current cache-system relies on precomp pod6 files, wich are read and then used by the tools (in `htmlify.p6` using Registry: [line](https://github.com/perl6/doc/blob/a2254ac37c25f0f710224c1aadd1e8a1693cc193/htmlify.p6#L197)). So the thing is, why to handle precomp files, which need to be read each time they are used, instead of handle everything in memory?
+
+So, this is the plan: 
+
+ - Take `Perl6::Documentable` and `Perl6::Type` apart from the main repo to independent modules, document them, use `mini-doc` repository to test them faster and lastly integrate them again.
+ - Take `Perl6::Documentable::Registry` apart and add in-memory-cache support, using a dependency tree to invalidate all files affected by a change and only recompile that files instead of the whole set (maybe using [Pod::Load](https://github.com/JJ/p6-pod-load)).
+ - Add tests:
+   - First set of tests: this will cover that each function behaves as expected.
+   - Second set of tests: this will test that the dependency tree invalidates and recompiles the correct pod6 files.
+
+If all of these steps have been made correctly, the integration of the new modules with the main repo should only be a matter of installing them and change some paths.
 
 #### `Pod::To::HTML` and GitHub
 
