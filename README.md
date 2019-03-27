@@ -176,9 +176,13 @@ Eventually, in my opinion it will be necessary to update the state of the doc sy
 
 ### About me
 
-I am currently studying a double degree in Computer Science and Mathematics at the University of 
-Granada, Spain. I have been programming in several languages before (C++, Java, Javascript, Python,
-etc.) but I am not so much experienced in Perl6.
+I'm currently studying a double degree in Computer Science and Mathematics at the University of 
+Granada, Spain. I have experience with C++, C, Java, Javascript, CSS, HTML, SQL, Python, Ruby and
+Perl6!
 
-These days I have been using Learning Perl 6 book by Brian D Foy so as to learn the basics
-about the language and I have taken part in a couple of squashatons (you can see some of my contributions [here](https://github.com/perl6/doc/commits?author=antoniogamiz)), written a simple [math module](https://github.com/antoniogamiz/Math-ConvergenceMethods) and I'm part of the [Perl6 Weekly Challenge](https://p6weekly.wordpress.com/)!.
+You can check my activity on the community [here](https://github.com/perl6/doc/commits?author=antoniogamiz). I
+have participated in a couple of squashatons to complete docs! Moreover, as a future mathematician, I'm also writing my first math module in Perl6! You can check it out [here](https://github.com/antoniogamiz/Math-ConvergenceMethods).
+
+From time to time I give some talks (like [this](https://github.com/antoniogamiz/Curso-Python)). I'll be talking 
+about privacy and security on the net in [JASYP 2019](https://interferencias.tech/jasyp/)! I will also organize a
+Perl, Perl5, Perl6 devroom in [esLibre](https://eslib.re/2019/acerca/) congress!
