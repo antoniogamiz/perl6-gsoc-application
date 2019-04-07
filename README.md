@@ -171,7 +171,7 @@ Finally, this is the plan for this part:
 
 ### Closing
 
-Eventually, in my opinion it will be necessary to update the state of the doc system and tooling in order to plan what to do next. Hence, I will write a post in the wiki section of the doc repo, explaining the work done so far.
+Eventually, in my opinion, it will be necessary to update the state of the doc system and tooling in order to plan what to do next. Hence, I will write a post in the wiki section of the doc repo, explaining the work done so far.
 
 ## About me
 
