@@ -2,6 +2,7 @@
 
 - **Student**: Antonio Gámiz Delgado [antoniogamiz10@gmail.com]
 - **Project Idea**: Based on [A redesign of the Perl6 Documentation System](https://github.com/perl6/doc/wiki/A-Redesign-of-the-Perl-6-Documentation-System)
+
 ---
 
 ## Abstract
