@@ -14,7 +14,7 @@
 
 ## Project Description
 
-A complete description of the project can be found here [README.md].
+A complete description of the project can be found [here](README.md).
 
 ## Time line
 
