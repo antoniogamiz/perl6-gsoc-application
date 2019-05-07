@@ -9,7 +9,7 @@
 | **Student** | **Antonio Gámiz** |
 | **Github** | [@antoniogamiz](https://github.com/antoniogamiz)  |
 | **Organisation**  | [Perl6](https://perl6.org/)  |
-| **Project** | [---]() |  
+| **Project** | [Redesign of the Perl6 Documentation System](https://summerofcode.withgoogle.com/projects/#4930522189398016) |
 | **Technology** | Perl6, HTML, Javascript |
 
 ## Project Description
@@ -19,7 +19,9 @@ A complete description of the project can be found [here](README.md).
 ## Time line
 
 - May 6 - May 27:  
-
+  - Participating in squashatons (commits [here](https://github.com/perl6/doc/commits?author=antoniogamiz)
+  - Fixing issue [#2770](https://github.com/perl6/doc/issues/2770)
+  
 ## Link to Commits
 
 [Perl 6 Docs](https://github.com/perl6/doc/commits?author=antoniogamiz)
