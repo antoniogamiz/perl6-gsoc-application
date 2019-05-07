@@ -15,8 +15,10 @@ The process would be something like this:
 2. `init` method is called with the numbers of threads we want to use (16 by default).
 3. The first link in `pending` will be "/". It will be scraped by the first process and the result will be added 
 calling the `addLink` method (the first arg, `parent`, will contain the info about the link scraped) and `links` 
-will contain the links found in the page (they will be added to `pending`.
+will contain the links found in the page (they will be added to `pending`).
 4. This process will be finished when all links in `pending` have been processed.
 
 This is my first approach, so any feedback, improvement or suggestion is welcomed (if you think this totally 
 incorrect just tell me).
+
+Next steps: design a tool to get relevant info from the links file generated previously.
