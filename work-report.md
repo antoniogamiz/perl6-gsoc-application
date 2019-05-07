@@ -19,8 +19,8 @@ A complete description of the project can be found [here](README.md).
 ## Time line
 
 - May 6 - May 27:  
-  - Participating in squashatons (commits [here](https://github.com/perl6/doc/commits?author=antoniogamiz)
-  - Fixing issue [#2770](https://github.com/perl6/doc/issues/2770)
+  - Participating in squashatons (commits [here](https://github.com/perl6/doc/commits?author=antoniogamiz))
+  - Issue [#2770](https://github.com/perl6/doc/issues/2770) fixed.
   
 ## Link to Commits
 
