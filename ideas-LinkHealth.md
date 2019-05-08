@@ -2,8 +2,6 @@
 
 I have been thinking a little about how to create this tool and I have come up with this:
 
-(this is only to get the links, about the rest of the module will be made later)
-
 ![](images/link.png)
 
 First we get all existing links in one array and save them in a file,
@@ -18,6 +16,8 @@ calling the `addLink` method (the first arg, `parent`, will contain the info abo
 will contain the links found in the page (they will be added to `pending`).
 4. This process will be finished when all links in `pending` have been processed.
 5. Save this file in CSV format (or JSON)
+
+Regarding link extraction I will use regexs and for HTTP Request I will be using the [Cro HTTP client](https://cro.services/docs/intro/http-client).
 
 The next step would be create one script to process the previous generated file and classify the links (as described
 [here](https://github.com/antoniogamiz/perl6-gsoc-application#link-scraper) and get some moreuseful info about them.
