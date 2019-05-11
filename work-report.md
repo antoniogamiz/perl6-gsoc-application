@@ -18,14 +18,21 @@ A complete description of the project can be found [here](README.md).
 
 ## Time line
 
-- May 6 - May 27:  
+- May 6 - May 13:  
   - Participating in squashatons (commits [here](https://github.com/perl6/doc/commits?author=antoniogamiz))
   - Issue [#2770](https://github.com/perl6/doc/issues/2770) fixed.
   - Working on [issue #2739](https://github.com/perl6/doc/issues/2739).
+  - Creation and setup of the [mini-doc repo]()
+  - Creation and setupd of the [Perl6::LinkHealth module]()
+  - Workid in [#2782](https://github.com/perl6/doc/issues/2782)
   
 ## Link to Commits
 
 [Perl 6 Docs](https://github.com/perl6/doc/commits?author=antoniogamiz)
+
+## Stackoverflow questions
+
+- [duckmap problem](https://stackoverflow.com/questions/56053649/why-this-duckmap-is-blocking/56054694?noredirect=1#comment98775913_56054694)
 
 ## References
 * [GSoC'18 work report by @srv-twry](https://gist.github.com/srv-twry/3e39aa7bcb344da386fd32b8552eff3e)
