@@ -21,8 +21,8 @@ A complete description of the project can be found [here](README.md).
 - May 6 - May 13:  
 
   - Participating in squashatons (commits [here](https://github.com/perl6/doc/commits?author=antoniogamiz))
-  - Issue [#2770](https://github.com/perl6/doc/issues/2770) fixed.
-  - Working on [issue #2739](https://github.com/perl6/doc/issues/2739).
+  - Issue [#2770](https://github.com/perl6/doc/issues/2770) closed.
+  - Issue [issue #2739](https://github.com/perl6/doc/issues/2739) closed.
   - Creation and setup of the [mini-doc repo](https://github.com/antoniogamiz/mini-doc)
   - Creation and setupd of the [Perl6::LinkHealth module](https://github.com/antoniogamiz/Perl6-LinkHealth)
   - Worked in [#2782](https://github.com/perl6/doc/issues/2782)
