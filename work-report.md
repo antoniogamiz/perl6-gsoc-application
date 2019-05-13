@@ -29,6 +29,8 @@ A complete description of the project can be found [here](README.md).
 
 - May 13 - May 20: I plan to complete the mini-doc repository.
 
+  - Worked in [#2483](https://github.com/perl6/doc/issues/2483)
+
 ## Link to Commits
 
 [Perl 6 Docs](https://github.com/perl6/doc/commits?author=antoniogamiz)
